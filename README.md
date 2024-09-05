@@ -71,8 +71,8 @@
 # model 
 
 function opdGetListing($session, $request){
-		$this->db->select('appointment.id, appointment.uhid, appointment.token, appointment.date_app, appointment.time_slot,
-										appointment.created_at, registration.patient as patient_name , registration.contact_number, registration.address,registration.city,registration.state,registration.country,registration.contact_number,registration.patient_type,registration.gender,registration.age,registration.blood_group, doctor.id as doctor_id, doctor.name as doctor_name,branch.name as branch_name,panel_patient_payment.file_status,panel_patient_payment.payment_status')
+		
+	$this->db->select('appointment.id, appointment.uhid, appointment.token, appointment.date_app, appointment.time_slot, appointment.created_at, registration.patient as patient_name ,registration.contact_number, registration.address,registration.city,registration.state,registration.country,registration.contact_number,registration.patient_type,registration.gender,registration.age,registration.blood_group, doctor.id as doctor_id, doctor.name as doctor_name,branch.name as branch_name,panel_patient_payment.file_status,panel_patient_payment.payment_status')
 						->from('appointment')
 						->join('registration', 'registration.id=appointment.patient_id', 'LEFT')
 						->join('doctor', 'doctor.id=appointment.doctor_id', 'LEFT')
